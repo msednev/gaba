@@ -8,11 +8,15 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env")
-    database_url: str = "sqlite:///" + os.path.join(basedir, 'db.sqlite')
+    database_url: str = "sqlite:///" + os.path.join(basedir, "..", "db.sqlite3")
     sql_echo: bool | Literal[0] | Literal[1] = False
 
     @computed_field
+    @property
     def engine_options(self) -> dict[str, bool]:
         if self.sql_echo:
             return {"echo": True}
         return {"echo": False}
+
+
+settings = Settings()

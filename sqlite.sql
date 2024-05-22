@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS user_profile
     sex         TEXT,
     address     TEXT,
     mail        TEXT,
-    birthdate   TEXT
+    birthdate   DATE
 );
 INSERT INTO user_profile (job, company, residence, blood_group, username, name, sex, address, mail, birthdate)
 VALUES ('Clinical scientist, histocompatibility and immunogenetics', 'Hanna, Obrien and Higgins',
